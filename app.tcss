@@ -1,0 +1,12 @@
+Button {
+	width: 100%;
+}
+
+.pass {
+	color: green;
+}
+
+.fail {
+	color: red;
+}
+
