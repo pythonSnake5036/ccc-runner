@@ -57,6 +57,8 @@ class CCCRunner(App):
         self.program = event.value
 
     async def run_test_cases(self) -> None:
+        run = self.query_one("#run")
+        run.disabled = True
         output = self.query_one("#output")
 
         for child in output.children:
@@ -66,6 +68,8 @@ class CCCRunner(App):
             test_case_display = TestCaseDisplay()
             test_case_display.test_output = test_case_output
             output.mount(test_case_display)
+
+        run.disabled = False
 
     @on(Button.Pressed, "#run")
     def start_test(self) -> None:
